@@ -103,10 +103,10 @@ function createConnectedField<L, M>(structure: Structure<L, M>) {
         // to prevent the following error:
         // `One of the sources for assign has an enumerable key on the prototype chain`
         // Reference: https://github.com/facebook/react-native/issues/5507
-        if (!isReactNative && isEvent(event)) {
+        if (!isReactNative) {
           onChange(
             {
-              ...event,
+              ...isEvent(event) ? event : undefined,
               preventDefault: () => {
                 defaultPrevented = true
                 return eventPreventDefault(event)
