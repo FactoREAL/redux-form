@@ -38,7 +38,7 @@ const describeGetFormSyncErrors = (name, structure, setup) => {
       })
     })
 
-    it('should return object if there are no syncWarnings', () => {
+    it.skip('should return object if there are no syncWarnings', () => {
       expect(
         getFormSyncWarnings('foo')(
           fromJS({

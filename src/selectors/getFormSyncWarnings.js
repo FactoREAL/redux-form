@@ -2,7 +2,9 @@
 import type { Structure, GetFormState } from '../types'
 import type { GetFormSyncWarningsInterface } from './getFormSyncWarnings.types'
 
-export default function createGetFormSyncWarnings({ getIn, empty }: Structure<any, any>) {
+const empty = {}
+
+export default function createGetFormSyncWarnings({ getIn }: Structure<any, any>) {
   return (form: string, getFormState: ?GetFormState): GetFormSyncWarningsInterface => {
     return (state: any) => {
       const nonNullGetFormState: GetFormState = getFormState || (state => getIn(state, 'form'))
